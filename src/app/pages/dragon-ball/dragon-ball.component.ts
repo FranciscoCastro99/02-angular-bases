@@ -1,0 +1,30 @@
+import { Component, computed, signal } from '@angular/core';
+
+interface Character{
+  id: number,
+  name: string,
+  power: number,
+
+}
+
+
+@Component({
+  selector: 'app-dragon-ball',
+  imports: [],
+  templateUrl: './dragon-ball.component.html',
+})
+export class DragonBallComponent {
+
+  characters = signal<Character[]>([
+    {id:1, name:'Goku', power:9001},
+    {id:2, name:'Vegeta', power:8000},
+    {id:3, name:'Piccolo', power:3000},
+  ]);
+
+  powerClasses = computed(()=>{
+    return{
+      'text-danger': true,
+    }
+  })
+
+}
